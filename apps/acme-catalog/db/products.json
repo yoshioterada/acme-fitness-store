@@ -1,0 +1,99 @@
+
+[
+  {
+    "name": "ヨガマット",
+    "shortdescription": "魔法のヨガマット！",
+    "description": "当社のヨガマットは、魔法のように優れています。最高の楽しみで、人間のプレッツェルのように身体を柔らかくねじることができます。ヨガをしたことがなくても心配いりません。このマットさえあれば、ほとんど努力をせずに瞬時にプロのような技を身につけることができます。これがアメリカ流です！ナマステ！",
+    "imageUrl1": "/static/images/yogamat_square.jpg",
+    "imageUrl2": "/static/images/yogamat_thumb2.jpg",
+    "imageUrl3": "/static/images/yogamat_thumb3.jpg",
+    "price": 62.5,
+    "tags": [
+      "mat"
+    ]
+  },
+  {
+    "name": "ウォーターボトル！",
+    "shortdescription": "買い替え不要の最後のウォーターボトル！",
+    "description": "当社のウォーターボトルは、水をたった一度だけ入れるだけで済みます！そう、たった一度です。あなたの人生の残りの期間、無制限に水を飲むことができます。34.99ドルなら、とても合理的な価格ではありませんか？もう他のウォーターボトルを買って、何度も補充する必要はありません。今すぐACMEボトルを手に入れましょう！",
+    "imageUrl1": "/static/images/bottle_square.jpg",
+    "imageUrl2": "/static/images/bottle_thumb2.jpg",
+    "imageUrl3": "/static/images/bottle_thumb3.jpg",
+    "price": 34.9900016784668,
+    "tags": [
+      "bottle"
+    ]
+  },
+  {
+    "name": "フィットバイク",
+    "shortdescription": "フィットバイクで軽快に運動しよう！",
+    "description": "ACMEのフィットバイクで風を切るような走りを楽しもう。小さなタイヤの自転車でMotoGPのレーサーのように、あなたも高速移動を体験できます！フィットバイクを手に入れれば、たった30秒でフィットネスへの道を爆走することができます！",
+    "imageUrl1": "/static/images/bicycle_square.jpg",
+    "imageUrl2": "/static/images/bicycle_thumb2.jpg",
+    "imageUrl3": "/static/images/bicycle_thumb3.jpg",
+    "price": 499.99,
+    "tags": [
+      "bicycle"
+    ]
+  },
+  {
+    "name": "バスケットボール",
+    "shortdescription": "世界一丸いバスケットボール！",
+    "description": "そうです、聞き間違いではありません。世界一“丸い”バスケットボールです。今のバスケットボールが十分に丸くないと感じたことはありませんか？そんな時はACMEバスケットボールにアップグレードしましょう。丸いボールでバスケットボールを存分に楽しんでください！",
+    "imageUrl1": "/static/images/basketball_square.jpg",
+    "imageUrl2": "/static/images/basketball_thumb2.jpg",
+    "imageUrl3": "/static/images/basketball_thumb3.jpg",
+    "price": 110.75,
+    "tags": [
+      "basketball"
+    ]
+  },
+  {
+    "name": "スマートウォッチ",
+    "shortdescription": "賢くなる時計!",
+    "description": "記憶力に自信がない？何日かわからなくなることがある？立ち上がって歩くタイミングを教えてくれるかわいい女性の声が欲しい？それなら、ACMEスマートウォッチがおすすめです！この時計を手に入れれば、何も覚えなくても大丈夫！",
+    "imageUrl1": "/static/images/smartwatch_square.jpg",
+    "imageUrl2": "/static/images/smartwatch_thumb2.jpg",
+    "imageUrl3": "/static/images/smartwatch_thumb3.jpg",
+    "price": 399.5899963378906,
+    "tags": [
+      "watch"
+    ]
+  },
+  {
+    "name": "赤いパンツ",
+    "shortdescription": "赤いパンツが必要な人?",
+    "description": "普段いつも同じジーンズやベンダーのTシャツでテックカンファレンスに参加されていませんか？もっとおしゃれなパンツが必要ではありませんか？ACMEの赤いパンツを手に入れれば、あなたも新たなファッション・レベルに到達できます。女性はあなたとの出会いを望み、男性はあなたを羨ましがります。あなたは、ファンシーなパンツマン！まだいつも通りで過ごしますか?",
+    "imageUrl1": "/static/images/redpants_square.jpg",
+    "imageUrl2": "/static/images/redpants_thumb2.jpg",
+    "imageUrl3": "/static/images/redpants_thumb3.jpg",
+    "price": 99,
+    "tags": [
+      "clothing"
+    ]
+  },
+  {
+    "name": "ランニングシューズ",
+    "shortdescription": "ママが魔法のシューズって言ってた！",
+    "description": "ママは正しかった！遅い？体型が崩れている？でも、まだウサイン・ボルトを 100m 走で倒す準備はできていますか？それなら、ACMEのランニングシューズを履いて、「早く走れ、フォレスト・ガンプ、走れ」! これらの靴で 100m を 2.5秒で走ることができます！",
+    "imageUrl1": "/static/images/shoes_square.jpg",
+    "imageUrl2": "/static/images/shoes_thumb2.jpg",
+    "imageUrl3": "/static/images/shoes_thumb3.jpg",
+    "price": 120,
+    "tags": [
+      "running"
+    ]
+  },
+  {
+    "name": "ダンベル",
+    "shortdescription": "汗をかかずに鍛えよう！",
+    "description": "ハンツ＆フランツと一緒に大きくなる準備はできていますか？またはアーノルド・シュワルツェネッガーのように筋肉質になりたいですか？その場合、ACMEダンベルをカートに追加する時です。1日たったの45秒、週3日であなたは間もなくマッスルビーチの人たちにすぐに勝てるようになります！",
+    "imageUrl1": "/static/images/weights_square.jpg",
+    "imageUrl2": "/static/images/weights_thumb2.jpg",
+    "imageUrl3": "/static/images/weights_thumb3.jpg",
+    "price": 49.99,
+    "tags": [
+      "weight"
+    ]
+  }
+]

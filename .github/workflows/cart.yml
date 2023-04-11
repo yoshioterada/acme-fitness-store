@@ -1,0 +1,58 @@
+name: Deploy Cart
+on:
+  workflow_dispatch:
+    inputs: { }
+  push:
+    branches:
+      - Azure
+    paths:
+      - 'apps/acme-cart/**'
+env:
+  SPRING_APPS_SERVICE: ${{ secrets.TF_PROJECT_NAME }}-asa
+  RESOURCE_GROUP: ${{ secrets.TF_PROJECT_NAME }}-grp
+  KEY_VAULT: ${{ secrets.TF_PROJECT_NAME }}-keyvault
+  CUSTOM_BUILDER: no-bindings-builder
+  CART_SERVICE_APP: cart-service
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/acme-cart
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v3
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8 pytest
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+# TODO: no tests
+#      - name: Test with pytest
+#        run: |
+#          pytest
+      - name: Set up Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Set up Azure Spring Extension
+        run: az extension add --name spring
+      - name: Deploy Cart
+        run: |
+          keyvault_uri=$(az keyvault show \
+            --resource-group ${RESOURCE_GROUP} \
+            --name ${KEY_VAULT} | jq -r '.properties.vaultUri')
+
+          gateway_url=$(az spring gateway show \
+            --resource-group ${RESOURCE_GROUP} \
+            --service ${SPRING_APPS_SERVICE} | jq -r '.properties.url')
+          
+          az spring app deploy \
+            --name ${CART_SERVICE_APP} \
+            --resource-group ${RESOURCE_GROUP} \
+            --service ${SPRING_APPS_SERVICE} \
+            --builder ${CUSTOM_BUILDER} \
+            --env "AUTH_URL=https://${gateway_url}" "CART_PORT=8080" "KEYVAULT_URI=${keyvault_uri}" \
+            --source-path ./

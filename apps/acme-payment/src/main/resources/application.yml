@@ -1,0 +1,8 @@
+eureka:
+  client:
+    enabled: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info,health

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="all,follow">
+    <meta name="googlebot" content="index,follow,snippet,archive">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ACME Fitness</title>
+    <meta name="keywords" content="">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Google fonts - Montserrat and Merriweather-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Merriweather:400,400italic" rel="stylesheet" type="text/css">
+    <!-- Font Awesome css-->
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <!-- Owl Carousel-->
+    <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.theme.default.min.css">
+    <!-- Theme stylesheet-->
+    <link id="theme-stylesheet" href="css/style.default.css" rel="stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link href="css/custom.css" rel="stylesheet">
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="favicon.png">
+    <script>
+    window.onload = function() {
+      // Check for sessionStorage support.
+      if (sessionStorage) {
+
+        // Add an event listener for form submissions
+        document.getElementById('deliveryInfo').addEventListener('submit', function() {
+          // Get the value of the form fields
+          var delivery = document.getElementsByName('delivery');
+          var delivery_value;
+          for(var i = 0; i < delivery.length; i++){
+              if(delivery[i].checked){
+                  delivery_value = delivery[i].value;
+
+              }
+          }
+          sessionStorage.delivery = delivery_value;
+        });
+
+        }
+
+      }
+    </script>
+  </head>
+  <body>
+    <!-- *** NAVBAR *** -->
+    <nav id="navbar" role="navigation" class="navbar navbar-light fixed-top navbar-expand-lg yamm justify-content-between">
+    </nav>
+    <!-- /#navbar-->
+    <!-- *** NAVBAR END ***-->
+    <!--  *** LOGIN MODAL ***-->
+    <div tabindex="-1" role="dialog" class="modal">
+      <div role="document" class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+          </div>
+          <div class="modal-body">
+            <p>Modal body text goes here.</p>
+          </div>
+          <div class="modal-footer" id="login-modal-footer">
+            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true" class="modal fade">
+    </div>
+    <!-- *** LOGIN MODAL END ***-->
+    <div id="all">
+      <div id="content">
+        <div class="container">
+          <ul class="breadcrumb justify-content-md-end justify-content-center">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active">Checkout - 配送方法の選択     </li>
+          </ul>
+          <div class="box text-center">
+            <div class="row">
+              <div class="col-md-10 offset-md-1">
+                <h1>Checkout - 配送方法の選択</h1>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div id="checkout" class="col-lg-9">
+              <div class="box">
+                <form id="deliveryInfo" method="get" action="checkout3.html">
+                  <ul class="nav nav-pills nav-fill">
+                    <li class="nav-item"><a href="checkout1.html" class="nav-link"><i class="fa fa-map-marker"></i><br>住所</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link active"><i class="fa fa-truck"></i><br>配送方法</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link disabled"><i class="fa fa-money"></i><br>支払い方法</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link disabled"><i class="fa fa-eye"></i><br>注文の確認</a></li>
+                  </ul>
+                  <div class="content">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="box shipping-method">
+                          <h4>てらだよしお運輸</h4>
+                          <p>てらだよしお運輸は、国内配送で最も低価格です。</p>
+                          <div class="box-footer text-center">
+                            <input type="radio" name="delivery" value="tractor">
+                          </div>
+                        </div>
+                      </div>
+                    <!-- /.row-->
+                  </div>
+                  <!-- /.content-->
+                  <div class="box-footer">
+                    <div class="pull-left"><a href="checkout1.html" class="btn btn-outline-white-secondary"><i class="fa fa-chevron-left"></i>住所に戻る</a></div>
+                    <div class="pull-right">
+                      <button type="submit" class="btn btn-outline-white-primary">支払い方法に進む<i class="fa fa-chevron-right"></i></button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <!-- /.box-->
+            </div>
+          </div>
+            <!-- /.col-lg-9-->
+            <div class="col-lg-3">
+              <div id="order-summary" class="box">
+                <div class="box-header">
+                  <h3>注文概要</h3>
+                </div>
+                <p class="text-muted">送料や手数料は、購入金額の合計に基づいて計算されます。</p>
+                <div class="table-responsive">
+                  <table class="table">
+                    <tbody>
+                      <tr>
+                        <td>注文小計</td>
+                        <th id = "orderSubtotal"></th>
+                      </tr>
+                      <tr>
+                        <td>送料と手数料</td>
+                        <th>無料</th>
+                      </tr>
+                      <tr>
+                        <td>税金</td>
+                        <th>0.00</th>
+                      </tr>
+                      <tr class="total">
+                        <td>合計</td>
+                        <th id="orderTotal"></th>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <!-- /.col-lg-3-->
+          </div>
+        </div>
+      </div>
+      <!-- *** FOOTER ***-->
+      <div id="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-md-6">
+              <h4>リンク</h4>
+              <ul>
+                <li><a href="text.html">About us</a></li>
+                <li><a href="text-left.html">規約と利用条件</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contact.html">お問い合わせ</a></li>
+              </ul>
+              <hr>
+              <h4>ユーザ・セクション</h4>
+              <ul>
+                <li><a href="#" data-toggle="modal" data-target="#login-modal">ログイン</a></li>
+                <li><a href="register.html">新規登録</a></li>
+              </ul>
+              <hr class="d-block d-lg-none">
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <h4>会社の所在地</h4>
+              <p><strong>ACMEフィットネス</strong><br>2705 サンダーロード<br>	パロアルト<br> カリフォルニア州<br><strong>米国</strong></p><a href="contact.html"> お問い合わせページへ</a>
+              <hr class="d-block d-md-none">
+            </div>
+            <!-- /.col-lg-3-->
+            <div class="col-lg-3 col-md-6">
+              <h4>ニュース</h4>
+              <p class="text-muted">Fitness 最新情報の入手</p>
+              <form>
+                <div class="input-group">
+                  <input type="text" class="form-control">
+                  <div class="input-group-append">
+                    <button type="button" class="btn btn-outline-secondary"> <i class="fa fa-send">              </i></button>
+                  </div>
+                </div>
+                <!-- /input-group-->
+              </form>
+              <hr>
+              <h4>連絡先</h4>
+              <p class="social"><a href="#"><i class="fa fa-facebook-square"></i></a><a href="#"><i class="fa fa-instagram"></i></a><a href="#"><i class="fa fa-google-plus"></i></a><a href="#"><i class="fa fa-envelope"></i></a></p>
+            </div>
+            <!-- /.col-lg-3-->
+          </div>
+          <!-- /.row-->
+        </div>
+        <!-- /.container-->
+      </div>
+      <!-- /#footer-->
+      <!-- *** FOOTER END ***-->
+      <!-- *** COPYRIGHT ***-->
+    
+      <!-- /#copyright-->
+      <!-- *** COPYRIGHT END ***-->
+    </div>
+    <!-- #### JavaScript files ###-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper.js/umd/popper.min.js"> </script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="vendor/owl.carousel/owl.carousel.min.js"></script>
+    <!-- main script-->
+    <script src="js/front.js"> </script>
+    <script src="js/client.js"></script>
+    <script>
+      $(document).ready(function() {
+        $.ajaxSetup({
+              contentType: "application/json; charset=utf-8"
+          });
+
+          $("#navbar").load("navbar.html")
+          $("#login-modal").load("login.html")
+          $("#footer").load("footer.html")
+          var cartTotal = sessionStorage.getItem('total')
+
+          $("#orderSubtotal").text(Intl.NumberFormat('ja-JP').format(cartTotal))
+          $("#orderTotal").text('￥' + Intl.NumberFormat('ja-JP').format(cartTotal))
+  }) // End of script
+      </script>
+  </body>
+</html>

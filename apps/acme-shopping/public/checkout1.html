@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="all,follow">
+    <meta name="googlebot" content="index,follow,snippet,archive">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ACME Fitness</title>
+    <meta name="keywords" content="">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Google fonts - Montserrat and Merriweather-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Merriweather:400,400italic" rel="stylesheet" type="text/css">
+    <!-- Font Awesome css-->
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <!-- Owl Carousel-->
+    <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.theme.default.min.css">
+    <!-- Theme stylesheet-->
+    <link id="theme-stylesheet" href="css/style.default.css" rel="stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link href="css/custom.css" rel="stylesheet">
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="favicon.png">
+    <script>
+    window.onload = function() {
+      // Check for sessionStorage support.
+      if (sessionStorage) {
+        $(document).ready(function() {
+          //Populate form from sessionStorage if values exist
+          if (sessionStorage.getItem('firstname') !== null) {
+            document.forms['addressInfo'].elements['firstname'].value = sessionStorage.getItem("firstname");
+          }
+          if (sessionStorage.getItem('lastname') !== null) {
+            document.forms['addressInfo'].elements['lastname'].value = sessionStorage.getItem("lastname");
+          }
+          if (sessionStorage.getItem('company') !== null) {
+            document.forms['addressInfo'].elements['company'].value = sessionStorage.getItem("company");
+          }
+          if (sessionStorage.getItem('street') !== null) {
+            document.forms['addressInfo'].elements['street'].value = sessionStorage.getItem("street");
+          }
+          if (sessionStorage.getItem('city') !== null) {
+            document.forms['addressInfo'].elements['city'].value = sessionStorage.getItem("city");
+          }
+          if (sessionStorage.getItem('zip') !== null) {
+            document.forms['addressInfo'].elements['zip'].value = sessionStorage.getItem("zip");
+          }
+          if (sessionStorage.getItem('state') !== null) {
+            document.forms['addressInfo'].elements['state'].value = sessionStorage.getItem("state");
+          }
+          if (sessionStorage.getItem('country') !== null) {
+            document.forms['addressInfo'].elements['country'].value = sessionStorage.getItem("country");
+          }
+          if (sessionStorage.getItem('phone') !== null) {
+            document.forms['addressInfo'].elements['phone'].value = sessionStorage.getItem("phone");
+          }
+          if (sessionStorage.getItem('email') !== null) {
+            document.forms['addressInfo'].elements['email'].value = sessionStorage.getItem("email");
+          }
+        });
+        // Add an event listener for form submissions
+        document.getElementById('addressInfo').addEventListener('submit', function() {
+          // Get the value of the form fields
+          var fname = document.getElementById('firstname').value;
+          var lname = document.getElementById('lastname').value;
+          var company = document.getElementById('company').value;
+          var street = document.getElementById('street').value;
+          var city = document.getElementById('city').value;
+          var zip = document.getElementById('zip').value;
+          var state = document.getElementById('state').value;
+          var country = document.getElementById('country').value;
+          var phone = document.getElementById('phone').value;
+          var email = document.getElementById('email').value;
+          var userid = getUserID();
+
+          // Save items in sessionStorage.
+          sessionStorage.firstname = fname;
+          sessionStorage.lastname = lname;
+          sessionStorage.company = company;
+          sessionStorage.street = street;
+          sessionStorage.city = city;
+          sessionStorage.zip = zip;
+          sessionStorage.state = state;
+          sessionStorage.country = country;
+          sessionStorage.phone = phone;
+          sessionStorage.email = email;
+          sessionStorage.userid = userid;
+          });
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <!-- *** NAVBAR *** -->
+    <nav id="navbar" role="navigation" class="navbar navbar-light fixed-top navbar-expand-lg yamm justify-content-between">
+    </nav>
+    <!-- /#navbar-->
+    <!-- *** NAVBAR END ***-->
+    <!--  *** LOGIN MODAL ***-->
+    <div tabindex="-1" role="dialog" class="modal">
+      <div role="document" class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+          </div>
+          <div class="modal-body">
+            <p>Modal body text goes here.</p>
+          </div>
+          <div class="modal-footer" id="login-modal-footer">
+            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true" class="modal fade">
+    </div>
+    <!-- *** LOGIN MODAL END ***-->
+    <div id="all">
+      <div id="content">
+        <div class="container">
+          <ul class="breadcrumb justify-content-md-end justify-content-center">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active">Checkout - お届け先</li>
+          </ul>
+          <div class="box text-center">
+            <div class="row">
+              <div class="col-md-10 offset-md-1">
+                <h1>Checkout - お届け先</h1>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div id="checkout" class="col-lg-9">
+              <div class="box">
+                <form id="addressInfo" method="get" action="checkout2.html">
+                  <ul class="nav nav-pills nav-fill">
+                    <li class="nav-item"><a href="shop-checkout1.html" class="nav-link active"><i class="fa fa-map-marker"></i><br>住所</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link disabled"><i class="fa fa-truck"></i><br>配送方法</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link disabled"><i class="fa fa-money"></i><br>支払い方法</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link disabled"><i class="fa fa-eye"></i><br>注文内容の確認</a></li>
+                  </ul>
+                  <div class="content">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="firstname">名前</label>
+                          <input id="firstname" type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="lastname">苗字</label>
+                          <input id="lastname" type="text" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /.row-->
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="company">会社名</label>
+                          <input id="company" type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="street">丁目・番地・号（数字は半角数字）</label>
+                          <input id="street" type="text" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /.row-->
+                    <div class="row">
+                      <div class="col-md-6 col-lg-3">
+                        <div class="form-group">
+                          <label for="city">市区町村</label>
+                          <input id="city" type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-6 col-lg-3">
+                        <div class="form-group">
+                          <label for="zip">郵便番号</label>
+                          <input id="zip" type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-6 col-lg-3">
+                        <div class="form-group">
+                          <label for="state">都道府県</label>
+                          <select id="state" class="form-control">
+                            <option value="北海道">北海道</option>
+                          	<option value="青森">青森</option>
+                          	<option value="岩手">岩手</option>
+                          	<option value="宮城">宮城</option>
+                          	<option value="秋田">秋田</option>
+                          	<option value="山形">山形</option>
+                          	<option value="福島">福島</option>
+                          	<option value="茨城">茨城</option>
+                          	<option value="栃木">栃木</option>
+                          	<option value="群馬">群馬</option>
+                          	<option value="埼玉">埼玉</option>
+                          	<option value="千葉">千葉</option>
+                          	<option value="東京">東京</option>
+                          	<option value="神奈川">神奈川</option>
+                          	<option value="新潟">新潟</option>
+                          	<option value="富山">富山</option>
+                          	<option value="石川">石川</option>
+                          	<option value="福井">福井</option>
+                          	<option value="山梨">山梨</option>
+                          	<option value="長野">長野</option>
+                          	<option value="岐阜">岐阜</option>
+                          	<option value="静岡">静岡</option>
+                          	<option value="愛知">愛知</option>
+                          	<option value="三重">三重</option>
+                          	<option value="滋賀">滋賀</option>
+                          	<option value="京都">京都</option>
+                          	<option value="大阪">大阪</option>
+                          	<option value="兵庫">兵庫</option>
+                          	<option value="奈良">奈良</option>
+                          	<option value="和歌山">和歌山</option>
+                          	<option value="鳥取">鳥取</option>
+                          	<option value="島根">島根</option>
+                          	<option value="岡山">岡山</option>
+                          	<option value="広島">広島</option>
+                          	<option value="山口">山口</option>
+                          	<option value="徳島">徳島</option>
+                          	<option value="香川">香川</option>
+                          	<option value="愛媛">愛媛</option>
+                          	<option value="高知">高知</option>
+                          	<option value="福岡">福岡</option>
+                          	<option value="佐賀">佐賀</option>
+                          	<option value="長崎">長崎</option>
+                          	<option value="熊本">熊本</option>
+                          	<option value="大分">大分</option>
+                          	<option value="宮崎">宮崎</option>
+                          	<option value="鹿児島">鹿児島</option>
+                          	<option value="沖縄">沖縄</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-6 col-lg-3">
+                        <div class="form-group">
+                          <label for="country">国</label>
+                          <select id="country" class="form-control">
+                            <option value="JAPAN">日本</option>
+                            <option value="USA">アメリカ</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="phone">電話番号</label>
+                          <input id="phone" type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="email">Email</label>
+                          <input id="email" type="text" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /.row-->
+                  </div>
+                  <div class="box-footer">
+                    <div class="pull-left"><a href="cart.html" class="btn btn-outline-white-secondary"><i class="fa fa-chevron-left"></i>カートに戻る</a></div>
+                    <div class="pull-right">
+                      <button type="submit" class="btn btn-outline-white-primary">配送方法の選択に進む<i class="fa fa-chevron-right"></i></button>
+                    </div>
+                  </div>
+                </form>
+              </div> 
+              <!-- /.box-->
+            </div>
+            <!-- /.col-lg-9-->
+            <div class="col-lg-3">
+              <div id="order-summary" class="box">
+                <div class="box-header">
+                  <h3>注文概要</h3>
+                </div>
+                <p class="text-muted">送料や手数料は、購入金額の合計に基づいて計算されます。</p>
+                <div class="table-responsive">
+                  <table class="table">
+                    <tbody>
+                      <tr>
+                        <td>注文小計</td>
+                        <th id="orderSubtotal"></th>
+                      </tr>
+                      <tr>
+                        <td>送料と手数料</td>
+                        <th>無料</th>
+                      </tr>
+                      <tr>
+                        <td>税金</td>
+                        <th>0.00</th>
+                      </tr>
+                      <tr class="total">
+                        <td>合計</td>
+                        <th id="orderTotal"></th>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <!-- /.col-lg-3-->
+          </div>
+        </div>
+      </div>
+      <!-- *** FOOTER ***-->
+      <div id="footer">
+        <!-- /.container-->
+      </div>
+      <!-- /#footer-->
+      <!-- *** FOOTER END ***-->
+    </div>
+    <!-- #### JavaScript files ###-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper.js/umd/popper.min.js"> </script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="vendor/owl.carousel/owl.carousel.min.js"></script>
+    <!-- main script-->
+    <script src="js/front.js"> </script>
+    <script src="js/client.js"></script>
+    <script src="js/jwt-decode.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $.ajaxSetup({
+              contentType: "application/json; charset=utf-8"
+          });
+
+          $("#navbar").load("navbar.html")
+          $("#login-modal").load("login.html")
+          $("#footer").load("footer.html")
+
+          var userid = getUserID();
+
+          // Get the total for the cart from cart service
+          // cartTotal = getCartTotal(userid, function(total){
+          //                       return total;
+          //                      });
+
+          // sessionStorage.total = cartTotal.toFixed(2)
+          var cartTotal = sessionStorage.getItem('total')
+
+          $("#orderSubtotal").text(Intl.NumberFormat('ja-JP').format(cartTotal))
+          $("#orderTotal").text('￥' + Intl.NumberFormat('ja-JP').format(cartTotal))
+      }); // End of script
+    </script>
+
+  </body>
+</html>
