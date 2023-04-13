@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta name="robots" content="all,follow">
@@ -92,6 +92,23 @@
                 <p class="lead">何かご質問ありますか?当社の商品に何か問題がありますか?</p>
                 <p>ご不明な点がございましたら、お気軽にカスタマー・サービス・センターまでお問い合わせください、カスタマー・センターは 24 時間 365 日対応が可能です。</p>
               </div>
+              <div class="col-md-10 offset-md-1">
+                <h3><i class="fa"></i>[New] Azure OpenAI ChatGPT・サポート</h3>
+                <form>
+                  <div class="row">
+                    <div class="col-lg-10 offset-lg-1">
+                      <div class="form-group">
+                        <label for="chatquestion">ご質問</label>
+                        <input id="chatquestion" type="text" class="form-control">
+                        <p class="text-muted" id="chatanswer"></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-center">
+                    <button type="submit" id="sendChatGPT" class="btn btn-primary"><i class="fa fa-envelope-o"></i> Send Chat Message</button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
           <div id="contact" class="box">
@@ -114,7 +131,6 @@
                 <p class="text-muted">お気軽にメールをお送りいただくか、電子チケットシステムをご利用ください。</p>
                 <ul>
                   <li><strong><a href="mailto:">hello@beyondvirtual.io</a></strong></li>
-                 <!---- <li><strong><a href="#">Ticketio</a></strong> - our ticketing support platform</li> -->
                 </ul>
               </div>
               <!-- /.col-md-4-->
@@ -191,6 +207,32 @@
               $("#navbar").load("navbar.html")
               $("#login-modal").load("login.html")
               $("#footer").load("footer.html")
+
+              $("#sendChatGPT").click(function(e){
+                e.preventDefault();
+                $("#chatanswer").html("検索中...")
+                var chatInputData = JSON.stringify($("#chatquestion").val());
+                $.ajax({type: "POST",
+                        dataType: 'json',
+                        headers : {"Content-Type": "application/json", "api-key" : "c88eae87447449e7bb3b124e8dbf03ea"},
+                        url: "https://yoshio-openai.openai.azure.com/openai/deployments/gpt-4/chat/completions?api-version=2023-03-15-preview" ,
+                        data: JSON.stringify({"messages": [{"role": "user","content": chatInputData }], "max_tokens": 800, "temperature": 0.5, "frequency_penalty": 0, "presence_penalty": 0, "top_p": 0.95, "stop": null}),
+                    success:function(result){
+                      $("#chatanswer").html("<p class=\"text-left text-muted\"/>")
+
+                      var resultMessages = result.choices[0].message.content;
+                      var resultArray = resultMessages.split("\n");
+                      resultArray.forEach(function(element) {
+                        if (element != ""){
+                          $("#chatanswer").append("<p class=\"text-left text-muted\">" + element + "</p>");
+                        }
+                      });
+                    },
+                    error:function(error){
+                      console.log(error);
+                    }});
+                });
+                
       
       }) // End of script
           </script>

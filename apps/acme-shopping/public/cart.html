@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
     <meta charset="utf-8">
     <meta name="robots" content="all,follow">
@@ -78,18 +78,18 @@
                                 <table class="table">
                                     <thead>
                                     <tr>
-                                        <th colspan="2">商品</th>
-                                        <th>数量</th>
-                                        <th>価格</th>
-                                        <th>割引</th>
-                                        <th colspan="2">小計</th>
+                                        <th id="d1" colspan="2">商品</th>
+                                        <th id="d2">数量</th>
+                                        <th id="d3">価格</th>
+                                        <th id="d4">割引</th>
+                                        <th id="d5" colspan="2">小計</th>
                                     </tr>
                                     </thead>
                                     <tbody id="cartList">
                                     </tbody>
                                     <tfoot>
                                     <tr>
-                                        <th colspan="5">合計</th>
+                                        <th id="d6" colspan="5">合計</th>
                                         <th id="cartTotal" colspan="2"></th>
                                     </tr>
                                     </tfoot>
@@ -100,7 +100,6 @@
                                 <div class="pull-left"><a href="catalog.html" class="btn btn-outline-white-secondary"><i
                                         class="fa fa-chevron-left"></i>買い物を続ける</a></div>
                                 <div class="pull-right">
-                                    <!---<button id="updateCart" class="btn btn-outline-white-secondary"><i class="fa fa-refresh"></i> Update cart</button>-->
                                     <button type="submit" class="btn btn-outline-white-primary">チェックアウトに進む<i
                                             class="fa fa-chevron-right"></i></button>
                                 </div>
@@ -129,7 +128,7 @@
                                 </tr>
                                 <tr>
                                     <td>税金</td>
-                                    <th>0.00</th>
+                                    <th id="d7">0.00</th>
                                 </tr>
                                 <tr class="total">
                                     <td>合計</td>
@@ -206,7 +205,7 @@
 
                         $.each(body.cart, function (index, item) {
 
-                            image = getImageUrl(item.itemid, function (imageurl) {
+                            var image = getImageUrl(item.itemid, function (imageurl) {
                                 return imageurl;
                             });
 
@@ -235,10 +234,6 @@
                             return stotal;
                         }
                         sessionStorage.setItem('total', cartTotal)
-
-                        // cartTotal = getCartTotal(userid, function (total) {
-                        //     return total;
-                        // });
 
                         $("#cartText").text('現在、カートに ' + quantity + ' 個の商品があります')
                         $('#cartList').append(content);

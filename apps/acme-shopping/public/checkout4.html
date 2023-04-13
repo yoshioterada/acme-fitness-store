@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta name="robots" content="all,follow">
@@ -25,52 +25,6 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
     <!-- Favicon-->
     <link rel="shortcut icon" href="favicon.png">
-    <!-- <script src="js/client.js"></script>
-    <script src="js/jwt-decode.min.js"></script>
-    <script>
-      window.onload = function() {
-
-        // Add an event listener for form submissions
-        document.getElementById('review').addEventListener('submit', function() {
-          //GET cart
-          var cartGet = new XMLHttpRequest();
-
-          //Build blob
-          var orderBlob = {};
-          orderBlob['userid'] = sessionStorage.userid;
-          orderBlob['firstname'] = sessionStorage.firstname;
-          orderBlob['lastname'] = sessionStorage.lastname;
-          var address = {};
-          address['street'] = sessionStorage.street;
-          address['city'] = sessionStorage.city;
-          address['zip'] = sessionStorage.zip;
-          address['state'] = sessionStorage.state;
-          address['country'] = sessionStorage.country;
-          orderBlob['address'] = address;
-          orderBlob['email'] = sessionStorage.email;
-          orderBlob['delivery'] = sessionStorage.delivery;
-          var card = {};
-          card['type'] = sessionStorage.type;
-          card['number'] = sessionStorage.cardnum;
-          card['ccv'] = sessionStorage.ccv;
-          card['expMonth'] = sessionStorage.expMonth;
-          card['expYear'] = sessionStorage.expYear;
-          orderBlob['card'] = card;
-
-          //Make POST call to order service
-          url: "/order/add/" + user,
-
-          var orderPost = new XMLHttpRequest();
-          orderPost.open("POST", url, true);
-          orderPost.setRequestHeader('Content-Type', 'application/json');
-          orderPost.send(orderBlob);
-
-          //Clear sessionStorage
-          sessionStorage.clear();
-        });
-
-      }
-    </script> -->
   </head>
   <body>
     <!-- *** NAVBAR *** -->
@@ -128,18 +82,18 @@
                       <table class="table">
                         <thead>
                           <tr>
-                            <th colspan="2">商品</th>
-                            <th>数量</th>
-                            <th>価格</th>
-                            <th>割引</th>
-                            <th>小計</th>
+                            <th id="d1" colspan="2">商品</th>
+                            <th id="d2">数量</th>
+                            <th id="d3">価格</th>
+                            <th id="d4">割引</th>
+                            <th id="d5">小計</th>
                           </tr>
                         </thead>
                         <tbody id="orderCartList">
                         </tbody>
                         <tfoot>
                           <tr>
-                            <th colspan="5">合計</th>
+                            <th id="d6" colspan="5">合計</th>
                             <th id="orderCartTotal" colspan="2"></th>
                           </tr>
                         </tfoot>
@@ -174,11 +128,11 @@
                       </tr>
                       <tr>
                         <td>送料と手数料</td>
-                        <th>無料</th>
+                        <th id="d7">無料</th>
                       </tr>
                       <tr>
                         <td>税金</td>
-                        <th>0.00</th>
+                        <th id="d8">0.00</th>
                       </tr>
                       <tr class="total">
                         <td>合計</td>
@@ -310,7 +264,6 @@
                 if(body !=null){
                   var cartTotal = 0;            
                   var content = ''
-                  var cartTotal = 0;
                   var quantity = 0;
                   var image = '';
 
