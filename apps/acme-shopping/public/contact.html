@@ -214,7 +214,7 @@
                 var chatInputData = JSON.stringify($("#chatquestion").val());
                 $.ajax({type: "POST",
                         dataType: 'json',
-                        headers : {"Content-Type": "application/json", "api-key" : "c88eae87447449e7bb3b124e8dbf03ea"},
+                        headers : {"Content-Type": "application/json", "api-key" : "***********************************"},
                         url: "https://yoshio-openai.openai.azure.com/openai/deployments/gpt-4/chat/completions?api-version=2023-03-15-preview" ,
                         data: JSON.stringify({"messages": [{"role": "user","content": chatInputData }], "max_tokens": 800, "temperature": 0.5, "frequency_penalty": 0, "presence_penalty": 0, "top_p": 0.95, "stop": null}),
                     success:function(result){
