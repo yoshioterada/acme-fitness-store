@@ -9,12 +9,3 @@ services:
       POSTGRES_DB: acmefit
     ports:
       - "5432:5432"
-  redis:
-    container_name: postgres_container
-    image: redis
-    environment:
-        REDIS_USER: root
-        REDIS_PASSWORD: CV7IyyaCde245v8yOYcXXPbYk5udxvJH4AzCaL1Ud2s=
-        REDIS_DB: acmefit
-    ports:
-      - "6379:6379"  
